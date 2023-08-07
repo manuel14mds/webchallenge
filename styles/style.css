@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap');
 * {
+    box-sizing: border-box;
     --dark_blue:hsl(233, 47%, 7%);
     --desaturated_blue:hsl(244, 38%, 16%);
     --soft_violet:hsl(277, 64%, 61%);
@@ -13,10 +14,16 @@
     --font_two: 'Lexend Deca', sans-serif;
 }
 body{
+    background-color: var(--dark_blue);
     font-size: 15px;
+    padding: 18px;
+    display: flex;
+    justify-content: center;
 }
 .component{
     background-color: var(--soft_violet);
+    overflow: hidden;
+    border-radius: 15px;
     display: flex;
     flex-direction: column;
 }
@@ -25,29 +32,34 @@ body{
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    filter: opacity(60%);
-
-
+    filter: opacity(40%);
     height: 240px;
     width: auto;
 }
 .component_data{
     background-color: var(--desaturated_blue);
     margin: 0;
+    padding: 35px 21px;
 }
 
 .component_data .title{
-    background-color: antiquewhite;
     font-family: var(--font_two);
+    color: var(--slightly_transparent_white_one);
+    text-align: center;
+    margin-top: 0;
     
 }
+.accent{
+    color: var(--soft_violet);
+}
 .component_data .info{
-    background-color: aqua;
     font-family: var(--font_one);
-
+    color: var(--slightly_transparent_white_two);
+    font-size: 14px;
+    text-align: center;
+    line-height: 25px;
 }
 .component_data .data{
-    background-color: aquamarine;
     font-family: var(--font_one);
     display: flex;
     flex-direction: column;
@@ -55,25 +67,61 @@ body{
     align-items: center;
 }
 .component_data .data .item{
-    background-color: bisque;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.component_data .data .item .item_info{
+    color: var(--slightly_transparent_white_two);
+    font-size: 10px;
+    margin: 2px;
+}
+.component_data .data .item .stats{
+    color: var(--slightly_transparent_white_one);
+    font-weight: 700;
+    font-size: 15px;
+    margin-top: 20px;
 }
 
 
 
-@media (min-width: 376px) {
+@media (min-width: 450px) {
     .component{
         flex-direction: row-reverse;
     }
     .component_image{
         background-image: url(../images/image-header-desktop.jpg);
         width: 50%;
+        height: 100%;
     }
     .component_data{
         width: 50%;
     }
+    .component_data .title{
+        font-size: 25px;
+        text-align: start;
+    }
+    .component_data .info{
+        font-size: 12px;
+        text-align: start;
+    }
     .component_data .data{
         flex-direction: row;
-        justify-content: start;
+        justify-content: space-between;
         align-items: center;
+    }
+}
+@media (min-width: 800px) {
+    .component{
+        margin-top: 100px;
+    }
+    .component_data{
+        padding: 65px;
+    }
+    .component_data .title{
+        font-size: 2rem;
+    }
+    .component_data .info{
+        font-size: 14px;
     }
 }
